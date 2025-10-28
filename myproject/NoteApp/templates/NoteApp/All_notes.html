@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django App{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>📝 Notes List</h2>
+
+  <a href="{% url 'Note_create' %}">➕ Create Note</a>
+    <ul>
+        {% for note in notes %}
+        <li>
+            {{ note.Note_title }} - {{ note.Note_desc }}
+            <a href="{% url 'update_note' note.id %}">✏️ Edit</a>
+            <a href="{% url 'delete_note' note.id %}">🧺 Delete</a>
+        </li>
+        {% empty %}
+        <li>No notes available yet.</li>
+        {% endfor %}
+    </ul>
+    <footer>
+        <p>&copy; 2025 My NoteApp</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

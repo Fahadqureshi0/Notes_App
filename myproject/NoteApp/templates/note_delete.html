@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Delete Note{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2>⚠️ Are you sure you want to delete <strong>{{ note.Note_Title }}</strong>?</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">✅ Yes, Delete</button>
+    </form>
+
+    <a href="{% url 'all_notes' %}">❌ Cancel</a>
+
+    <footer>
+        <p>&copy; 2025 My Notes App</p>
+    </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
