@@ -10,13 +10,13 @@
 <body>
     <h2>📝 Notes List</h2>
 
-  <a href="{% url 'Note_create' %}">➕ Create Note</a>
+  <a href="{% url 'Note_create' %}"> Create Note</a>
     <ul>
         {% for note in notes %}
         <li>
             {{ note.Note_title }} - {{ note.Note_desc }}
-            <a href="{% url 'update_note' note.id %}">✏️ Edit</a>
-            <a href="{% url 'delete_note' note.id %}">🧺 Delete</a>
+            <a href="{% url 'update_note' note.id %}"> Edit</a>
+            <a href="{% url 'delete_note' note.id %}"> Delete</a>
         </li>
         {% empty %}
         <li>No notes available yet.</li>
@@ -29,3 +29,4 @@
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
+
